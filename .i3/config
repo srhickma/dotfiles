@@ -19,10 +19,11 @@ bindsym XF86AudioPrev exec playerctl previous
 # startup
 exec --no-startup-id nm-applet
 exec "xrandr --output HDMI-0 --primary --auto --left-of DVI-D-0; xrandr --output DVI-D-0 --pos 1920x0; feh --randomize --bg-scale ~/Pictures/material/*"
-#exec "killall compton; compton --config ~/.config/compton.conf -b"
-exec rofi -key-run $mod+d
 exec gsettings set org.gnome.desktop.background show-desktop-icons false
 exec pulseaudio &
+
+# rofi
+bindsym $mod+d exec rofi -show run
 
 # new browser
 bindsym $mod+i exec firefox
