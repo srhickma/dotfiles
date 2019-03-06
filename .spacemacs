@@ -297,8 +297,12 @@ values."
    ;; `trailing' to delete only the whitespace at end of lines, `changed'to
    ;; delete only whitespace for changed lines or `nil' to disable cleanup.
    ;; (default nil)
-   dotspacemacs-whitespace-cleanup nil
-   ))
+   dotspacemacs-whitespace-cleanup nil 
+   )
+
+  ;; Alias fix for which-key--update in emacs26
+  (defalias 'display-buffer-in-major-side-window 'window--make-major-side-window)
+)
 
 (defun dotspacemacs/user-init ()
   "Initialization function for user code.
