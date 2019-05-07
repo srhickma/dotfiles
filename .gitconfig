@@ -1,5 +1,5 @@
 [user]
 	email = srhickma@edu.uwaterloo.ca
 	name = Shane Hickman
-[http "https://192.168.0.102:3000"]
-	sslVerify = false
+[branch "master"]
+	pushRemote = no_push
