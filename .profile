@@ -22,4 +22,5 @@ export PATH="/usr/local/go/bin:$PATH"
 export PATH="$HOME/go/bin:$PATH"
 
 # Run emacs as daemon by default
+export EDITOR="emacsclient --tty"
 export ALTERNATE_EDITOR=""
