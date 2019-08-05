@@ -14,4 +14,9 @@ fi
 # set PATH so it includes user's private bin directories
 PATH="$HOME/bin:$HOME/.local/bin:$PATH"
 
+# Rust binaries
 export PATH="$HOME/.cargo/bin:$PATH"
+
+# Golang binaries
+export PATH="/usr/local/go/bin:$PATH"
+export PATH="$HOME/go/bin:$PATH"
