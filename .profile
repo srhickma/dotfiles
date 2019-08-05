@@ -20,3 +20,6 @@ export PATH="$HOME/.cargo/bin:$PATH"
 # Golang binaries
 export PATH="/usr/local/go/bin:$PATH"
 export PATH="$HOME/go/bin:$PATH"
+
+# Run emacs as daemon by default
+export ALTERNATE_EDITOR=""
