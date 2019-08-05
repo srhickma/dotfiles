@@ -118,3 +118,6 @@ fi
 
 # Setup for dotfiles repo
 alias dotfiles='/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'
+
+# Setup emacs alias
+alias e='emacsclient --tty'
