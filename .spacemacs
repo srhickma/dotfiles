@@ -153,8 +153,7 @@
    dotspacemacs-mode-line-unicode-symbols t
    dotspacemacs-smooth-scrolling t
    dotspacemacs-line-numbers '(:enabled-for-modes
-                               prog-mode
-                               :relative f)
+                               prog-mode)
    ;; Code folding method. Possible values are `evil' and `origami'.
    ;; (default 'evil)
    dotspacemacs-folding-method 'evil
@@ -207,6 +206,9 @@
 
   ;; format rust files on save
   (setq rust-format-on-save t)
+
+  ;; format go files on save
+  (add-hook 'before-save-hook 'gofmt-before-save)
 
   ;; enable continuous scroll in doc view
   (setq doc-view-continuous t)
