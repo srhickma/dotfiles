@@ -170,27 +170,20 @@
    dotspacemacs-default-package-repository nil
    dotspacemacs-whitespace-cleanup 'trailing
    )
-
-  ;; Alias fix for which-key--update in emacs26
-  (defalias 'display-buffer-in-major-side-window 'window--make-major-side-window)
-
-  (setq-default c-basic-offset 4)
 )
 
 (defun dotspacemacs/user-init ()
 )
 
 (defun dotspacemacs/user-config ()
-  (cua-mode t)
-  (setq cua-auto-tabify-rectangles nil) ;; Don't tabify after rectangle commands
-  (transient-mark-mode 1) ;; No region when it is not highlighted
-  (setq cua-keep-region-after-copy t) ;; Standard Windows behaviour
+  ;; alias fix for which-key--update in emacs 26
+  (defalias 'display-buffer-in-major-side-window 'window--make-major-side-window)
 
-  ;; enable cua and transient mark modes in term-line-mode
-  (defadvice term-line-mode (after term-line-mode-fixes ())
-    (set (make-local-variable 'cua-mode) t)
-    (set (make-local-variable 'transient-mark-mode) t))
-  (ad-activate 'term-line-mode)
+  ;; enable cua and transient mark modes globally by default
+  (cua-mode t)
+  (transient-mark-mode 1)
+  (setq cua-auto-tabify-rectangles nil)
+  (setq cua-keep-region-after-copy t)
 
   ;; disable cua and transient mark modes in term-char-mode
   (defadvice term-char-mode (after term-char-mode-fixes ())
@@ -198,7 +191,29 @@
     (set (make-local-variable 'transient-mark-mode) nil))
   (ad-activate 'term-char-mode)
 
-  (setq x-select-enable-clipboard t)
+  ;; use the clipboard for cut and paste
+  (setq select-enable-clipboard t)
+
+  ;; enable centered point globally
+  (spacemacs/toggle-centered-point-globally-on)
+
+  ;; disable centered point in term mode
+  (add-hook 'term-mode-hook 'term-mode-hook-disable-cp)
+  (defun term-mode-hook-disable-cp ()
+    (spacemacs/toggle-centered-point-off))
+
+  ;; dumb-jump key bindings
+  (spacemacs/set-leader-keys "jd" 'dumb-jump-go)
+
+  ;; avy key bindings
+  (global-set-key (kbd "C-:") 'avy-goto-char)
+
+  ;; global doom theme configuration
+  (use-package doom-themes
+    :config
+    (setq doom-themes-enable-bold t
+          doom-themes-enable-italic t)
+    (load-theme 'doom-one t))
 
   ;; enable auto-complete in rust mode by default
   (add-hook 'rust-mode-hook #'racer-mode)
@@ -212,19 +227,6 @@
 
   ;; enable continuous scroll in doc view
   (setq doc-view-continuous t)
-
-  ;; global doom theme configuration
-  (use-package doom-themes
-    :config
-    (setq doom-themes-enable-bold t
-          doom-themes-enable-italic t)
-    (load-theme 'doom-one t))
-
-  ;; dumb-jump key bindings
-  (spacemacs/set-leader-keys "jd" 'dumb-jump-go)
-
-  ;; avy key bindings
-  (global-set-key (kbd "C-:") 'avy-goto-char)
 
 ;; Do not write anything past this comment. This is where Emacs will
 ;; auto-generate custom variable definitions.
