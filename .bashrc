@@ -98,3 +98,6 @@ if ! shopt -oq posix; then
     . /etc/bash_completion
   fi
 fi
+
+# enable portable git bash completion
+test -f ~/.git-completion.bash && . $_
