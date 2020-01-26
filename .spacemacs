@@ -103,45 +103,6 @@
   )
 
 (defun dotspacemacs/user-config ()
-  ;; alias fix for which-key--update in emacs 26
-  (defalias 'display-buffer-in-major-side-window 'window--make-major-side-window)
-
-  ;; enable cua and transient mark modes globally by default
-  (cua-mode t)
-  (transient-mark-mode 1)
-  (setq cua-auto-tabify-rectangles nil)
-  (setq cua-keep-region-after-copy t)
-
-  ;; disable cua and transient mark modes in term-char-mode
-  (defadvice term-char-mode (after term-char-mode-fixes ())
-    (set (make-local-variable 'cua-mode) nil)
-    (set (make-local-variable 'transient-mark-mode) nil))
-  (ad-activate 'term-char-mode)
-
-  ;; use the clipboard for cut and paste
-  (setq select-enable-clipboard t)
-
-  ;; enable centered point globally
-  (spacemacs/toggle-centered-point-globally-on)
-
-  ;; disable centered point in term mode
-  (add-hook 'term-mode-hook 'term-mode-hook-disable-cp)
-  (defun term-mode-hook-disable-cp ()
-    (spacemacs/toggle-centered-point-off))
-
-  ;; dumb-jump key bindings
-  (spacemacs/set-leader-keys "jd" 'dumb-jump-go)
-
-  ;; avy key bindings
-  (global-set-key (kbd "C-:") 'avy-goto-char)
-
-  ;; global doom theme configuration
-  (use-package doom-themes
-    :config
-    (setq doom-themes-enable-bold t
-          doom-themes-enable-italic t)
-    (load-theme 'doom-one t))
-
   ;; enable auto-complete in rust mode by default
   (add-hook 'rust-mode-hook #'racer-mode)
   (add-hook 'racer-mode-hook #'eldoc-mode)
