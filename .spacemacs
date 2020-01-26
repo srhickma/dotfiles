@@ -17,7 +17,6 @@
      nginx
      yaml
      helm
-     auto-completion
      emacs-lisp
      git
      latex
