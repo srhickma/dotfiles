@@ -3,9 +3,10 @@
 (defun dotspacemacs/layers ()
   (setq-default
    dotspacemacs-distribution 'spacemacs
-   dotspacemacs-configuration-layer-path '()
+   dotspacemacs-configuration-layer-path '("~/.layers")
    dotspacemacs-configuration-layers
    '(
+     x-wide
      sql
      javascript
      html
