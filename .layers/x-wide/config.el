@@ -22,3 +22,7 @@
   (setq ac-auto-start 2
         ac-delay 0.2
         tab-always-indent t))
+
+(use-package avy
+  :bind ("C-:" . avy-goto-char)
+  :config (setq avy-all-windows nil))
