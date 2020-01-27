@@ -1,0 +1,7 @@
+(configuration-layer/declare-layer 'go)
+(configuration-layer/declare-layer 'html)
+(configuration-layer/declare-layer 'javascript)
+(configuration-layer/declare-layer 'nginx)
+(configuration-layer/declare-layer 'rust)
+(configuration-layer/declare-layer 'sql)
+(configuration-layer/declare-layer 'yaml)
