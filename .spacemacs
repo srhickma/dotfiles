@@ -16,14 +16,8 @@
      org
      nginx
      yaml
-     helm
-     emacs-lisp
-     git
      latex
      markdown
-     spell-checking
-     syntax-checking
-     version-control
      )
    dotspacemacs-additional-packages '()
    dotspacemacs-frozen-packages '()
