@@ -7,17 +7,14 @@
    dotspacemacs-configuration-layers
    '(
      x-wide
+     x-acad
      sql
      javascript
      html
      go
      rust
-     octave
-     org
      nginx
      yaml
-     latex
-     markdown
      )
    dotspacemacs-additional-packages '()
    dotspacemacs-frozen-packages '()
@@ -105,9 +102,6 @@
 
   ;; format go files on save
   (add-hook 'before-save-hook 'gofmt-before-save)
-
-  ;; enable continuous scroll in doc view
-  (setq doc-view-continuous t)
 
 ;; Do not write anything past this comment. This is where Emacs will
 ;; auto-generate custom variable definitions.
