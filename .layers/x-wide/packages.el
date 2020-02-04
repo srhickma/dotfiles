@@ -21,7 +21,7 @@
     (define-global-minor-mode filter-global-centered-cursor-mode centered-cursor-mode
       (lambda ()
         (when (not (memq major-mode
-                         (list 'Info-mode 'term-mode 'eshell-mode 'shell-mode 'erc-mode)))
+                         (list 'Info-mode 'term-mode 'eshell-mode 'shell-mode 'erc-mode 'pdf-view-mode)))
           (centered-cursor-mode))))
     (filter-global-centered-cursor-mode 1))
   )
