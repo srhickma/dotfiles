@@ -14,3 +14,7 @@ alias dotfiles='/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'
 
 # Setup emacs alias
 alias e='emacsclient --tty'
+
+# Python
+alias python=python3
+alias pip=pip3
