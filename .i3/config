@@ -7,6 +7,38 @@ font pango:monospace 8
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
 
+# misc setup
+exec /usr/lib/policykit-1-gnome/polkit-gnome-authentication-agent-1
+
+# display setup
+exec xrandr --output DP-2 --primary --mode 1920x1080 --rate 144.00 --output HDMI-0 --mode 1920x1080 --rate 60.00 --right-of DP-2
+exec feh --bg-scale ~/Pictures/wallpaper.png
+exec gsettings set org.gnome.desktop.background show-desktop-icons false
+
+# audio setup
+exec pulseaudio --kill
+exec pulseaudio --start
+
+# system-tray setup
+exec --no-startup-id nm-applet
+exec --no-startup-id blueman-applet
+exec --no-startup-id pasystray
+
+# rofi
+bindsym $mod+space exec rofi -show run
+
+# new browser
+bindsym $mod+i exec fn
+
+# start a terminal
+bindsym $mod+Return exec --no-startup-id konsole
+
+# kill focused window
+bindsym $mod+q kill
+
+# suspend to RAM
+bindsym $mod+Escape exec sudo /usr/sbin/pm-suspend
+
 # volume controls
 bindsym XF86AudioRaiseVolume exec "amixer -q set Master 2dB+ unmute; pkill -RTMIN+10 i3block"
 bindsym XF86AudioLowerVolume exec "amixer -q set Master 2dB- unmute; pkill -RTMIN+10 i3block"
@@ -15,28 +47,6 @@ bindsym XF86AudioLowerVolume exec "amixer -q set Master 2dB- unmute; pkill -RTMI
 bindsym XF86AudioPlay exec playerctl play-pause
 bindsym XF86AudioNext exec playerctl next
 bindsym XF86AudioPrev exec playerctl previous
-
-# startup
-exec --no-startup-id nm-applet
-exec /usr/lib/policykit-1-gnome/polkit-gnome-authentication-agent-1
-exec "xrandr --output HDMI-0 --primary --auto --left-of DVI-D-0; xrandr --output DVI-D-0 --pos 1920x0; feh --randomize --bg-scale ~/Pictures/material/*"
-exec gsettings set org.gnome.desktop.background show-desktop-icons false
-exec pulseaudio &
-
-# rofi
-bindsym $mod+space exec rofi -show run
-
-# new browser
-bindsym $mod+i exec firefox
-
-# start a terminal
-bindsym $mod+Return exec --no-startup-id gnome-terminal -e tmux
-
-# kill focused window
-bindsym $mod+q kill
-
-# suspend to RAM
-bindsym $mod+Escape exec "gnome-screensaver-command --lock; sudo /usr/sbin/pm-suspend"
 
 # change focus
 bindsym $mod+h focus left
@@ -110,7 +120,9 @@ bindsym $mod+r mode "resize"
 
 bar {
   status_command i3blocks
-        tray_output primary
+  tray_output primary
+  workspace_buttons yes
+
   colors {
     separator #666666
     background #222222
