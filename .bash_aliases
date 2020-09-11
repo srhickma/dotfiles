@@ -18,3 +18,7 @@ alias e='emacsclient --tty'
 # Python
 alias python=python3
 alias pip=pip3
+
+# Copy and paste commands
+alias pbcopy='xclip -selection clipboard'
+alias pbpaste='xclip -selection clipboard -o'
