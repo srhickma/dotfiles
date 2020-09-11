@@ -36,6 +36,3 @@ export PATH="$HOME/go/bin:$PATH"
 # Run emacs as daemon by default
 export EDITOR="emacsclient --tty"
 export ALTERNATE_EDITOR=""
-
-# Setup i3 sensible terminal
-export TERMINAL="konsole"

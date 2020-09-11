@@ -9,20 +9,16 @@ floating_modifier $mod
 
 # misc setup
 exec /usr/lib/policykit-1-gnome/polkit-gnome-authentication-agent-1
+exec pulseaudio &
 
-# display setup
-exec xrandr --output DP-2 --primary --mode 1920x1080 --rate 144.00 --output HDMI-0 --mode 1920x1080 --rate 60.00 --right-of DP-2
+# background setup
 exec feh --bg-scale ~/Pictures/wallpaper.png
 exec gsettings set org.gnome.desktop.background show-desktop-icons false
 
-# audio setup
-exec pulseaudio --kill
-exec pulseaudio --start
-
 # system-tray setup
-exec --no-startup-id nm-applet
-exec --no-startup-id blueman-applet
-exec --no-startup-id pasystray
+exec_always --no-startup-id nm-applet
+exec_always --no-startup-id blueman-applet
+exec_always --no-startup-id pasystray
 
 # rofi
 bindsym $mod+space exec rofi -show run
