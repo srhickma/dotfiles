@@ -104,3 +104,5 @@ fi
 
 # enable portable git bash completion
 test -f ~/.git-completion.bash && . $_
+
+export SSH_AUTH_SOCK=${XDG_RUNTIME_DIR}/gnupg/S.gpg-agent.ssh
